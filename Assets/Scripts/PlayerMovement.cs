@@ -25,21 +25,28 @@ public class PlayerMovement : MonoBehaviour {
 		moveX = Input.GetAxis("Horizontal");
 		moveY = Input.GetAxis("Vertical");
 
+		GameObject fs = GameObject.Find("FrontSensor");
+		FrontSensor frontSensor = (FrontSensor) fs.GetComponent(typeof(FrontSensor));
+
 		if (moveX > 0) { //flip right
+			frontSensor.flipRight();
 			sr.flipX = false;
 			moveDirection.x = 1;
 		} else if (moveX < 0) { //flip left
+			frontSensor.flipLeft();
 			sr.flipX = true;
 			moveDirection.x = -1;
 		}
 		if (moveY > 0) { //flip up
+			frontSensor.flipUp();
 			sr.flipY = false;
 			moveDirection.y = 1;
 		} else if (moveY < 0) { //flip down
+			frontSensor.flipDown();
 			sr.flipY = true;
 			moveDirection.y = -1;
 		}
-
+			
 		transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
 	}
 }
