@@ -6,27 +6,41 @@ public class PlayerMovement : MonoBehaviour {
 
 	Rigidbody2D rb;
 	SpriteRenderer sr;
+	GameObject fs;
+	FrontSensor frontSensor;
 	float moveX;
 	float moveY;
+	float destroyInput;
 	public float speed;
+	public int score;
+	public bool sensingDestructible;
 
 	// Use this for initialization
 	void Start () {
+		fs = GameObject.Find("FrontSensor");
+		frontSensor = (FrontSensor) fs.GetComponent(typeof(FrontSensor));
+
 		rb = gameObject.GetComponent<Rigidbody2D> ();
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 		rb.freezeRotation = true;
+		score = 0;
+		sensingDestructible = false;
 	}
 	
 	// Update is called once per frame
+	void Update() {
+		destroyInput = Input.GetAxis ("Fire1");
+		if (destroyInput > 0 && sensingDestructible) {
+			frontSensor.Damage (this);
+		}
+	}
+
 	void FixedUpdate () {
 		// NOTE: atm, this just flips the sprite when the player changes directions.
 		// Later, we will replace this with different animations for each direction.
 		Vector2 moveDirection = new Vector2(0, 0);
 		moveX = Input.GetAxis("Horizontal");
 		moveY = Input.GetAxis("Vertical");
-
-		GameObject fs = GameObject.Find("FrontSensor");
-		FrontSensor frontSensor = (FrontSensor) fs.GetComponent(typeof(FrontSensor));
 
 		if (moveX > 0) { //flip right
 			frontSensor.flipRight();
