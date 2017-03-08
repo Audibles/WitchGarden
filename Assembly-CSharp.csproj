@@ -49,8 +49,11 @@
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\Destructible.cs" />
      <Compile Include="Assets\Scripts\FrontSensor.cs" />
+     <Compile Include="Assets\Scripts\GuardMovement.cs" />
+     <Compile Include="Assets\Scripts\GuardSensor.cs" />
      <Compile Include="Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Scripts\Pot.cs" />
+     <Compile Include="Assets\Scripts\Sensor.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

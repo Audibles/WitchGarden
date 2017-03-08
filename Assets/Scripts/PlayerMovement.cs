@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -62,5 +63,11 @@ public class PlayerMovement : MonoBehaviour {
 		}
 			
 		transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
+	}
+
+	public void getCaught() {
+		//this will later actually end the game/cause the guard to chase the player
+		Debug.Log("got ya");
+		SceneManager.LoadScene("MainScene");
 	}
 }

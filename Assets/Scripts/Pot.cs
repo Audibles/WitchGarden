@@ -8,12 +8,12 @@ public class Pot : Destructible {
 	void Start () {
 		base.Start ();
 		scoreValue = 10;
-		health = 5;
+		health = 1;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (health);
+		
 	}
 
 	public override void TakeDamage(PlayerMovement player) {
