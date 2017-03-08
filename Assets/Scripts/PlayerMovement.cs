@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour {
 		score = 0;
 		sensingDestructible = false;
 	}
-	
+
 	// Update is called once per frame
 	void Update() {
 		destroyInput = Input.GetAxis ("Fire1");
@@ -60,7 +61,13 @@ public class PlayerMovement : MonoBehaviour {
 			sr.flipY = true;
 			moveDirection.y = -1;
 		}
-			
+
 		transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
+	}
+
+	public void getCaught() {
+		//this will later actually end the game/cause the guard to chase the player
+		Debug.Log("got ya");
+		SceneManager.LoadScene("MainScene");
 	}
 }
