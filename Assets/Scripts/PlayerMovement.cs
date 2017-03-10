@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
 	SpriteRenderer sr;
 	GameObject fs;
 	FrontSensor frontSensor;
+	Animator anim;
 	float moveX;
 	float moveY;
 	float destroyInput;
@@ -21,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
 		fs = GameObject.Find("FrontSensor");
 		frontSensor = (FrontSensor) fs.GetComponent(typeof(FrontSensor));
 
+		anim = gameObject.GetComponent<Animator> ();
 		rb = gameObject.GetComponent<Rigidbody2D> ();
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 		rb.freezeRotation = true;
@@ -44,22 +46,25 @@ public class PlayerMovement : MonoBehaviour {
 		moveY = Input.GetAxis("Vertical");
 
 		if (moveX > 0) { //flip right
+			anim.SetBool("isWalkingRight", true);
 			frontSensor.flipRight();
-			sr.flipX = false;
 			moveDirection.x = 1;
 		} else if (moveX < 0) { //flip left
+			anim.SetBool("isWalkingLeft", true);
 			frontSensor.flipLeft();
-			sr.flipX = true;
 			moveDirection.x = -1;
 		}
 		if (moveY > 0) { //flip up
-			frontSensor.flipUp();
-			sr.flipY = false;
+			//anim.SetBool ("isWalkingRight", true);
+			frontSensor.flipUp ();
 			moveDirection.y = 1;
 		} else if (moveY < 0) { //flip down
-			frontSensor.flipDown();
-			sr.flipY = true;
+			//anim.SetBool ("isWalkingLeft", true);
+			frontSensor.flipDown ();
 			moveDirection.y = -1;
+		} else {
+			anim.SetBool ("isWalkingRight", false);
+			anim.SetBool ("isWalkingLeft", false);
 		}
 
 		transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
