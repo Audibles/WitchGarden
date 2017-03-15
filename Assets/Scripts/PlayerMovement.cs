@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed;
 	public int score;
 	public bool sensingDestructible;
+    public GameObject hedge;
 
 	// Use this for initialization
 	void Start () {
@@ -28,7 +29,11 @@ public class PlayerMovement : MonoBehaviour {
 		rb.freezeRotation = true;
 		score = 0;
 		sensingDestructible = false;
-	}
+
+        //ability to build hedge fetch it
+        hedge = GameObject.Find("ShortHedge");
+        print(hedge);
+    }
 
 	// Update is called once per frame
 	void Update() {
@@ -36,7 +41,13 @@ public class PlayerMovement : MonoBehaviour {
 		if (destroyInput > 0 && sensingDestructible) {
 			frontSensor.Damage (this);
 		}
-	}
+        if (Input.GetKeyDown("h"))
+        {
+            print("entered h");
+            Vector3 offset = new Vector3(0, -.15f, 0);
+            var build = Instantiate(hedge, transform.position + offset, transform.rotation);
+        }
+    }
 
 	void FixedUpdate () {
 		// NOTE: atm, this just flips the sprite when the player changes directions.
