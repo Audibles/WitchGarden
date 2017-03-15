@@ -64,6 +64,9 @@ public class PlayerMovement : MonoBehaviour {
 			anim.SetBool("isWalkingLeft", true);
 			frontSensor.flipLeft();
 			moveDirection.x = -1;
+		} else {
+			anim.SetBool ("isWalkingRight", false);
+			anim.SetBool ("isWalkingLeft", false);
 		}
 		if (moveY > 0) { //flip up
 			//anim.SetBool ("isWalkingRight", true);
@@ -73,10 +76,7 @@ public class PlayerMovement : MonoBehaviour {
 			//anim.SetBool ("isWalkingLeft", true);
 			frontSensor.flipDown ();
 			moveDirection.y = -1;
-		} else {
-			anim.SetBool ("isWalkingRight", false);
-			anim.SetBool ("isWalkingLeft", false);
-		}
+		} 
 
 		transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
 	}
