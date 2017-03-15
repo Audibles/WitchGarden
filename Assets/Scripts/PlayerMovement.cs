@@ -56,31 +56,56 @@ public class PlayerMovement : MonoBehaviour {
 		moveX = Input.GetAxis("Horizontal");
 		moveY = Input.GetAxis("Vertical");
 
-		if (moveX > 0) { //flip right
-			anim.SetBool ("isWalkingLeft", false);
+		if (moveX > 0) { //flip right and moving right
 			anim.SetBool("isWalkingRight", true);
-			frontSensor.flipRight();
-			moveDirection.x = 1;
-		} else if (moveX < 0) { //flip left
-			anim.SetBool ("isWalkingRight", false);
-			anim.SetBool("isWalkingLeft", true);
-			frontSensor.flipLeft();
-			moveDirection.x = -1;
-		} /*else {
-			anim.SetBool ("isWalkingRight", false);
-			anim.SetBool ("isWalkingLeft", false);
-		}*/
-		if (moveY > 0) { //flip up
-			//anim.SetBool ("isWalkingRight", true);
-			frontSensor.flipUp ();
-			moveDirection.y = 1;
-		} else if (moveY < 0) { //flip down
-			//anim.SetBool ("isWalkingLeft", true);
-			frontSensor.flipDown ();
-			moveDirection.y = -1;
-		} 
+            anim.SetBool("isWalkingLeft", false);
+            anim.SetBool("isFacingRight", false);
+            //frontSensor.flipRight();
+            moveDirection.x = 1;
 
-		transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
+        } else if (moveX < 0) { //flip left and moving left
+			anim.SetBool("isWalkingLeft", true);
+            anim.SetBool("isWalkingRight", false);
+            anim.SetBool("isFacingLeft", false);
+            //frontSensor.flipLeft();
+            moveDirection.x = -1;
+        } else { // not moving
+            if (anim.GetBool("isWalkingRight")) {
+                anim.SetBool("isWalkingRight", false);
+                anim.SetBool("isFacingRight", true);
+                anim.SetBool("isFacingLeft", false);
+            } else if (anim.GetBool("isWalkingLeft")) {
+                anim.SetBool("isWalkingLeft", false);
+                anim.SetBool("isFacingLeft", true);
+                anim.SetBool("isFacingRight", false);
+            }
+		}
+        if (moveY > 0) { //flip up
+          anim.SetBool ("isWalkingUp", true);
+          anim.SetBool("isWalkingDown", false);
+            anim.SetBool("isFacingUp", false);
+            //frontSensor.flipUp ();
+            moveDirection.y = 1;
+        } else if (moveY < 0) { //flip down
+          anim.SetBool ("isWalkingDown", true);
+            anim.SetBool("isWalkingUp", false);
+            anim.SetBool("isFacingDown", false);
+            //frontSensor.flipDown ();
+            moveDirection.y = -1;
+        } else { // not moving
+            if (anim.GetBool("isWalkingUp")) {
+                anim.SetBool("isWalkingUp", false);
+                anim.SetBool("isFacingUp", true);
+                anim.SetBool("isFacingDown", false);
+            }
+            else if (anim.GetBool("isWalkingDown")) {
+                anim.SetBool("isWalkingDown", false);
+                anim.SetBool("isFacingDown", true);
+                anim.SetBool("isFacingUp", false);
+            }
+        }
+
+        transform.Translate(moveDirection * speed * Time.deltaTime, Space.World);
 	}
 
 	public void getCaught() {
