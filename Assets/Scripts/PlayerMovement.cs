@@ -57,17 +57,19 @@ public class PlayerMovement : MonoBehaviour {
 		moveY = Input.GetAxis("Vertical");
 
 		if (moveX > 0) { //flip right
+			anim.SetBool ("isWalkingLeft", false);
 			anim.SetBool("isWalkingRight", true);
 			frontSensor.flipRight();
 			moveDirection.x = 1;
 		} else if (moveX < 0) { //flip left
+			anim.SetBool ("isWalkingRight", false);
 			anim.SetBool("isWalkingLeft", true);
 			frontSensor.flipLeft();
 			moveDirection.x = -1;
-		} else {
+		} /*else {
 			anim.SetBool ("isWalkingRight", false);
 			anim.SetBool ("isWalkingLeft", false);
-		}
+		}*/
 		if (moveY > 0) { //flip up
 			//anim.SetBool ("isWalkingRight", true);
 			frontSensor.flipUp ();
