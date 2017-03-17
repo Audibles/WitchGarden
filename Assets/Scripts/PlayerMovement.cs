@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour {
 
         //ability to build hedge fetch it
         hedge = GameObject.Find("ShortHedge");
-        print(hedge);
     }
 
 	// Update is called once per frame
@@ -46,10 +45,29 @@ public class PlayerMovement : MonoBehaviour {
             print("entered h");
             Vector3 offset = new Vector3(0, -.15f, 0);
             var build = Instantiate(hedge, transform.position + offset, transform.rotation);
+            OnTriggerEnter(build.GetComponent<Collider2D>());
         }
     }
 
-	void FixedUpdate () {
+    //IGNORE BELOW for now------------------------------
+    GameObject other2;
+    void OnTriggerEnter(Collider2D other)
+    {
+        other2 = other.gameObject;
+        StartCoroutine("Wait1Frame");
+    }
+
+    IEnumerator Wait1Frame() {
+        yield return 0;
+        if (other2.gameObject.tag == "Destructible")
+        {
+            SendMessageUpwards("CollisionWithObject", SendMessageOptions.DontRequireReceiver);
+            Debug.Log("Collision With Destructible");
+        }
+    }
+    //IGNORE ABOVE ----------------------------------
+
+        void FixedUpdate () {
 		// NOTE: atm, this just flips the sprite when the player changes directions.
 		// Later, we will replace this with different animations for each direction.
 		Vector2 moveDirection = new Vector2(0, 0);
