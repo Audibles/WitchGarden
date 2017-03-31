@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour {
 	public float speed;
 	public int score;
 	public bool sensingDestructible;
+    public bool hedgeActivated;
+    public bool frontSensorVisible;
     public GameObject hedge;
 
 	// Use this for initialization
@@ -29,6 +31,8 @@ public class PlayerMovement : MonoBehaviour {
 		rb.freezeRotation = true;
 		score = 0;
 		sensingDestructible = false;
+        hedgeActivated = false;
+        frontSensorVisible = false;
 
         //ability to build hedge fetch it
         hedge = GameObject.Find("ShortHedge");
@@ -37,35 +41,43 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		destroyInput = Input.GetAxis ("Fire1");
-		if (destroyInput > 0 && sensingDestructible) {
+        frontSensor.GetComponent<Renderer>().enabled = frontSensorVisible;
+
+
+        if (destroyInput > 0 && sensingDestructible) {
 			frontSensor.Damage (this);
 		}
-        if (Input.GetKeyDown("h"))
-        {
-            print("entered h");
-            Vector3 offset = new Vector3(0, -.15f, 0);
-            var build = Instantiate(hedge, transform.position + offset, transform.rotation);
-            OnTriggerEnter(build.GetComponent<Collider2D>());
-        }
-    }
 
-    //IGNORE BELOW for now------------------------------
-    GameObject other2;
-    void OnTriggerEnter(Collider2D other)
-    {
-        other2 = other.gameObject;
-        StartCoroutine("Wait1Frame");
-    }
-
-    IEnumerator Wait1Frame() {
-        yield return 0;
-        if (other2.gameObject.tag == "Destructible")
-        {
-            SendMessageUpwards("CollisionWithObject", SendMessageOptions.DontRequireReceiver);
-            Debug.Log("Collision With Destructible");
+        //Changes the color of the bush based on whether you can place one there
+        if (sensingDestructible && hedgeActivated) {
+            frontSensor.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         }
+        else {
+            frontSensor.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+        }
+
+        //Place Hedge ability with "h", "h" again to place "g" to cancel
+        if (Input.GetKeyDown("h") && !hedgeActivated) {
+            hedgeActivated = true;
+            frontSensorVisible = true;
+            
+        } else if (Input.GetKeyDown("h") && hedgeActivated) {
+            if (!sensingDestructible)
+            {
+                Vector3 frontSensorPosition = frontSensor.GetComponent<Transform>().position;
+                frontSensorPosition.z = 0;
+                var build = Instantiate(hedge, frontSensorPosition, frontSensor.GetComponent<Transform>().rotation);
+                //OnTriggerEnter(build.GetComponent<Collider2D>());
+                hedgeActivated = false;
+                frontSensorVisible = false;
+            }
+
+        } else if (Input.GetKeyDown("g") && hedgeActivated) {
+            hedgeActivated = false;
+            frontSensorVisible = false;
+        }
+
     }
-    //IGNORE ABOVE ----------------------------------
 
         void FixedUpdate () {
 		// NOTE: atm, this just flips the sprite when the player changes directions.
