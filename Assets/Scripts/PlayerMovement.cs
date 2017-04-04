@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
-	Rigidbody2D rb;
+    UIManager uiManager;
+    Rigidbody2D rb;
 	SpriteRenderer sr;
 	GameObject fs;
 	FrontSensor frontSensor;
-	Animator anim;
+    GameObject hm;
+    FrontSensor hedgeMaker;
+    Animator anim;
 	float moveX;
 	float moveY;
 	float destroyInput;
@@ -17,22 +20,28 @@ public class PlayerMovement : MonoBehaviour {
 	public int score;
 	public bool sensingDestructible;
     public bool hedgeActivated;
-    public bool frontSensorVisible;
+    public bool hedgeMakerVisible;
+    public bool hedgePlacement;
     public GameObject hedge;
 
 	// Use this for initialization
 	void Start () {
-		fs = GameObject.Find("FrontSensor");
+        uiManager = UIManager.uiManager;
+        fs = GameObject.Find("FrontSensor");
 		frontSensor = (FrontSensor) fs.GetComponent(typeof(FrontSensor));
 
-		anim = gameObject.GetComponent<Animator> ();
+        hm = GameObject.Find("HedgeMaker");
+        hedgeMaker = (FrontSensor)hm.GetComponent(typeof(FrontSensor));
+
+        anim = gameObject.GetComponent<Animator> ();
 		rb = gameObject.GetComponent<Rigidbody2D> ();
 		sr = gameObject.GetComponent<SpriteRenderer> ();
 		rb.freezeRotation = true;
 		score = 0;
-		sensingDestructible = false;
+		sensingDestructible = frontSensor.Destructible();
+        hedgePlacement = hedgeMaker.Destructible();
         hedgeActivated = false;
-        frontSensorVisible = false;
+        hedgeMakerVisible = false;
 
         //ability to build hedge fetch it
         hedge = GameObject.Find("ShortHedge");
@@ -41,40 +50,41 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		destroyInput = Input.GetAxis ("Fire1");
-        frontSensor.GetComponent<Renderer>().enabled = frontSensorVisible;
-
+        hedgeMaker.GetComponent<Renderer>().enabled = hedgeMakerVisible;
+        sensingDestructible = frontSensor.Destructible();
+        hedgePlacement = hedgeMaker.Destructible();
 
         if (destroyInput > 0 && sensingDestructible) {
 			frontSensor.Damage (this);
 		}
 
         //Changes the color of the bush based on whether you can place one there
-        if (sensingDestructible && hedgeActivated) {
-            frontSensor.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        if (hedgePlacement && hedgeActivated) {
+            hedgeMaker.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         }
         else {
-            frontSensor.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            hedgeMaker.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
         }
 
         //Place Hedge ability with "h", "h" again to place "g" to cancel
         if (Input.GetKeyDown("h") && !hedgeActivated) {
             hedgeActivated = true;
-            frontSensorVisible = true;
+            hedgeMakerVisible = true;
             
         } else if (Input.GetKeyDown("h") && hedgeActivated) {
-            if (!sensingDestructible)
+            if (!hedgePlacement)
             {
-                Vector3 frontSensorPosition = frontSensor.GetComponent<Transform>().position;
-                frontSensorPosition.z = 0;
-                var build = Instantiate(hedge, frontSensorPosition, frontSensor.GetComponent<Transform>().rotation);
+                Vector3 hedgeMakerPosition = hedgeMaker.GetComponent<Transform>().position;
+                hedgeMakerPosition.z = 0;
+                var build = Instantiate(hedge, hedgeMakerPosition, hedgeMaker.GetComponent<Transform>().rotation);
                 //OnTriggerEnter(build.GetComponent<Collider2D>());
                 hedgeActivated = false;
-                frontSensorVisible = false;
+                hedgeMakerVisible = false;
             }
 
         } else if (Input.GetKeyDown("g") && hedgeActivated) {
             hedgeActivated = false;
-            frontSensorVisible = false;
+            hedgeMakerVisible = false;
         }
 
     }
@@ -91,6 +101,7 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("isWalkingLeft", false);
             anim.SetBool("isFacingRight", false);
             frontSensor.flipRight();
+            hedgeMaker.flipRight();
             moveDirection.x = 50;
 
         } else if (moveX < 0) { //flip left and moving left
@@ -98,6 +109,7 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("isWalkingRight", false);
             anim.SetBool("isFacingLeft", false);
             frontSensor.flipLeft();
+            hedgeMaker.flipLeft();
             moveDirection.x = -50;
         } else { // not moving
             if (anim.GetBool("isWalkingRight")) {
@@ -115,12 +127,14 @@ public class PlayerMovement : MonoBehaviour {
           anim.SetBool("isWalkingDown", false);
             anim.SetBool("isFacingUp", false);
             frontSensor.flipUp ();
+            hedgeMaker.flipUp();
             moveDirection.y = 50;
         } else if (moveY < 0) { //flip down
           anim.SetBool ("isWalkingDown", true);
             anim.SetBool("isWalkingUp", false);
             anim.SetBool("isFacingDown", false);
             frontSensor.flipDown ();
+            hedgeMaker.flipDown();
             moveDirection.y = -50;
         } else { // not moving
             if (anim.GetBool("isWalkingUp")) {
@@ -141,6 +155,8 @@ public class PlayerMovement : MonoBehaviour {
 	public void getCaught() {
 		//this will later actually end the game/cause the guard to chase the player
 		Debug.Log("got ya");
-		SceneManager.LoadScene("MainScene");
-	}
+        //SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MenuScene");
+        //uiManager.TakeLife();
+    }
 }
