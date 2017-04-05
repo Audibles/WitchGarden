@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool hedgeActivated;
     public bool hedgeMakerVisible;
     public bool hedgePlacement;
+    public bool currentlyDamaging;
     public GameObject hedge;
 
 	// Use this for initialization
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour {
         hedgePlacement = hedgeMaker.Destructible();
         hedgeActivated = false;
         hedgeMakerVisible = false;
+        currentlyDamaging = false;
 
         //ability to build hedge fetch it
         hedge = GameObject.Find("ShortHedge");
@@ -54,9 +56,13 @@ public class PlayerMovement : MonoBehaviour {
         sensingDestructible = frontSensor.Destructible();
         hedgePlacement = hedgeMaker.Destructible();
 
-        if (destroyInput > 0 && sensingDestructible) {
-			frontSensor.Damage (this);
-		}
+        if (destroyInput > 0 && sensingDestructible && !currentlyDamaging)
+        {
+            currentlyDamaging = true;
+            frontSensor.Damage(this);
+        } else if (destroyInput == 0) {
+            currentlyDamaging = false;
+        }
 
         //Changes the color of the bush based on whether you can place one there
         if (hedgePlacement && hedgeActivated) {

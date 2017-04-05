@@ -57,6 +57,6 @@ public class Pot : Destructible
         //anim.SetBool("Hit", true);
         player.score += scoreValue;
         destroyed = true;
-        Destroy(this.gameObject);
+        Destroy(this.gameObject.GetComponent<BoxCollider2D>());
     }
 }
