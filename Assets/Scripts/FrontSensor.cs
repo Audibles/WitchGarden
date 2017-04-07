@@ -12,7 +12,7 @@ public class FrontSensor : Sensor
     public bool senseDestructible;
 
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
         base.Start();
         colliderOffset = 0.255f;
@@ -24,7 +24,7 @@ public class FrontSensor : Sensor
     {
         if (other.gameObject.tag == "Destructible")
         {
-            so = GameObject.Find(other.gameObject.name);
+			so = other.gameObject;
             sensedObj = (Destructible)so.GetComponent(typeof(Destructible));
             //player.sensingDestructible = true;
             senseDestructible = true;

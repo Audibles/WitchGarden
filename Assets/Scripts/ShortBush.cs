@@ -18,7 +18,7 @@ public class ShortBush : Destructible
     public Sprite health0;
 
     // Use this for initialization
-    void Start () {
+    public override void Start () {
         base.Start();
         scoreValue = 25;
         health = 10;

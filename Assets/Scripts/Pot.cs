@@ -12,7 +12,7 @@ public class Pot : Destructible
     Animator anim;
 
     // Use this for initialization
-    void Start()
+    public override void Start()
     {
         base.Start();
         scoreValue = 10;
