@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 
 
 public class LoadOnClick : MonoBehaviour {
@@ -11,7 +11,7 @@ public class LoadOnClick : MonoBehaviour {
     GameObject Title_Screen;
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
         Scene currentScene = SceneManager.GetActiveScene();
         string currentSceneName = currentScene.name;
         if (currentSceneName == "MainScene")
