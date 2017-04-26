@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 	float destroyInput;
 	public float speed;
 	public int score;
+	float startTime;
 	public bool sensingDestructible;
     public bool hedgeActivated;
     public bool hedgeMakerVisible;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		startTime = Time.time + 180;
         uiManager = UIManager.uiManager;
         fs = GameObject.Find("FrontSensor");
 		frontSensor = (FrontSensor) fs.GetComponent(typeof(FrontSensor));
@@ -51,6 +53,11 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+		float guiTime = startTime - Time.time;
+		int minutes = (int) guiTime / 60;
+		int seconds = (int) guiTime % 60;
+		Debug.Log (minutes + " " + seconds);
+
 		destroyInput = Input.GetAxis ("Fire1");
         hedgeMaker.GetComponent<Renderer>().enabled = hedgeMakerVisible;
         sensingDestructible = frontSensor.Destructible();
