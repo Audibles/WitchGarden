@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ShortBush : Destructible
 {
-    //private float volLowRange = .5f;
-    //private float volHighRange = 1.0f;
-    //public AudioClip breakSound;
-    //private AudioSource source;
+    private float volLowRange = .5f;
+    private float volHighRange = 1.0f;
+    public AudioClip breakSound1;
+    public AudioClip breakSound2;
+    private AudioSource source;
+
+
     Animator anim;
     private SpriteRenderer spriteRenderer;
     public Sprite normal; 
@@ -39,6 +42,11 @@ public class ShortBush : Destructible
 
     public override void TakeDamage(PlayerMovement player)
     {
+
+        float vol = Random.Range(volLowRange, volHighRange);
+        var number = Random.Range(0, 2);
+        source.PlayOneShot(breakSound2, vol);
+
         health -= 1;
         if (health == 8) {
             print("AT 8 HEALTH");

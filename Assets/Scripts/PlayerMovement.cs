@@ -65,26 +65,38 @@ public class PlayerMovement : MonoBehaviour {
 
         if (destroyInput > 0 && sensingDestructible && !currentlyDamaging)
         {
+            if (anim.GetBool("isWalkingLeft") || anim.GetBool("isFacingLeft"))
+            {
+                anim.SetBool("HitLeft", true);
+            }
             currentlyDamaging = true;
             frontSensor.Damage(this);
-        } else if (destroyInput == 0) {
+            anim.SetBool("HitLeft", false);
+        }
+        else if (destroyInput == 0)
+        {
             currentlyDamaging = false;
         }
 
         //Changes the color of the bush based on whether you can place one there
-        if (hedgePlacement && hedgeActivated) {
+        if (hedgePlacement && hedgeActivated)
+        {
             hedgeMaker.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
         }
-        else {
+        else
+        {
             hedgeMaker.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
         }
 
         //Place Hedge ability with "h", "h" again to place "g" to cancel
-        if (Input.GetKeyDown("h") && !hedgeActivated) {
+        if (Input.GetKeyDown("h") && !hedgeActivated)
+        {
             hedgeActivated = true;
             hedgeMakerVisible = true;
-            
-        } else if (Input.GetKeyDown("h") && hedgeActivated) {
+
+        }
+        else if (Input.GetKeyDown("h") && hedgeActivated)
+        {
             if (!hedgePlacement)
             {
                 Vector3 hedgeMakerPosition = hedgeMaker.GetComponent<Transform>().position;
@@ -95,7 +107,9 @@ public class PlayerMovement : MonoBehaviour {
                 hedgeMakerVisible = false;
             }
 
-        } else if (Input.GetKeyDown("g") && hedgeActivated) {
+        }
+        else if (Input.GetKeyDown("g") && hedgeActivated)
+        {
             hedgeActivated = false;
             hedgeMakerVisible = false;
         }
@@ -109,60 +123,106 @@ public class PlayerMovement : MonoBehaviour {
 		moveX = Input.GetAxis("Horizontal");
 		moveY = Input.GetAxis("Vertical");
 
-		if (moveX > 0) { //flip right and moving right
-			anim.SetBool("isWalkingRight", true);
-            anim.SetBool("isWalkingLeft", false);
-            anim.SetBool("isFacingRight", false);
+        if (moveX > 0)
+        { //flip right and moving right
+            if (anim.GetBool("isWalkingDown") || anim.GetBool("isWalkingUp"))
+            {
+
+            }
+            else
+            {
+                anim.SetBool("isWalkingRight", true);
+                anim.SetBool("isWalkingLeft", false);
+                anim.SetBool("isFacingRight", false);
+            }
             frontSensor.flipRight();
             hedgeMaker.flipRight();
             moveDirection.x = 50;
 
-        } else if (moveX < 0) { //flip left and moving left
-			anim.SetBool("isWalkingLeft", true);
-            anim.SetBool("isWalkingRight", false);
-            anim.SetBool("isFacingLeft", false);
+        }
+        else if (moveX < 0)
+        { //flip left and moving left
+            if (anim.GetBool("isWalkingDown") || anim.GetBool("isWalkingUp"))
+            {
+
+
+            }
+            else
+            {
+                anim.SetBool("isWalkingLeft", true);
+                anim.SetBool("isWalkingRight", false);
+                anim.SetBool("isFacingLeft", false);
+            }
             frontSensor.flipLeft();
             hedgeMaker.flipLeft();
             moveDirection.x = -50;
-        } else { // not moving
-            if (anim.GetBool("isWalkingRight")) {
+        }
+        else
+        { // not moving
+            if (anim.GetBool("isWalkingRight"))
+            {
                 anim.SetBool("isWalkingRight", false);
                 anim.SetBool("isFacingRight", true);
                 anim.SetBool("isFacingLeft", false);
-            } else if (anim.GetBool("isWalkingLeft")) {
+            }
+            else if (anim.GetBool("isWalkingLeft"))
+            {
                 anim.SetBool("isWalkingLeft", false);
                 anim.SetBool("isFacingLeft", true);
                 anim.SetBool("isFacingRight", false);
             }
-		}
-        if (moveY > 0) { //flip up
-          anim.SetBool ("isWalkingUp", true);
-          anim.SetBool("isWalkingDown", false);
-            anim.SetBool("isFacingUp", false);
-            frontSensor.flipUp ();
+        }
+        if (moveY > 0)
+        { //flip up
+            if (anim.GetBool("isWalkingRight") || anim.GetBool("isWalkingLeft"))
+            {
+
+            }
+            else
+            {
+                anim.SetBool("isWalkingUp", true);
+                anim.SetBool("isWalkingDown", false);
+                anim.SetBool("isFacingUp", false);
+            }
+
+            frontSensor.flipUp();
             hedgeMaker.flipUp();
             moveDirection.y = 50;
-        } else if (moveY < 0) { //flip down
-          anim.SetBool ("isWalkingDown", true);
-            anim.SetBool("isWalkingUp", false);
-            anim.SetBool("isFacingDown", false);
-            frontSensor.flipDown ();
+        }
+        else if (moveY < 0)
+        { //flip down
+            if (anim.GetBool("isWalkingRight") || anim.GetBool("isWalkingLeft"))
+            {
+
+            }
+            else
+            {
+                anim.SetBool("isWalkingDown", true);
+                anim.SetBool("isWalkingUp", false);
+                anim.SetBool("isFacingDown", false);
+            }
+
+            frontSensor.flipDown();
             hedgeMaker.flipDown();
             moveDirection.y = -50;
-        } else { // not moving
-            if (anim.GetBool("isWalkingUp")) {
+        }
+        else
+        { // not moving
+            if (anim.GetBool("isWalkingUp"))
+            {
                 anim.SetBool("isWalkingUp", false);
                 anim.SetBool("isFacingUp", true);
                 anim.SetBool("isFacingDown", false);
             }
-            else if (anim.GetBool("isWalkingDown")) {
+            else if (anim.GetBool("isWalkingDown"))
+            {
                 anim.SetBool("isWalkingDown", false);
                 anim.SetBool("isFacingDown", true);
                 anim.SetBool("isFacingUp", false);
             }
         }
 
-		rb.velocity = moveDirection * speed * Time.deltaTime;
+        rb.velocity = moveDirection * speed * Time.deltaTime;
 	}
 
 	public void getCaught() {
