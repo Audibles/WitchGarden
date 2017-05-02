@@ -1,0 +1,552 @@
+fileFormatVersion: 2
+guid: a07c0a592e78e5e40a89642b561ac86d
+timeCreated: 1493724491
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: witch sheet_0
+    21300002: witch sheet_1
+    21300004: witch sheet_2
+    21300006: witch sheet_3
+    21300008: witch sheet_4
+    21300010: witch sheet_5
+    21300012: witch sheet_6
+    21300014: witch sheet_7
+    21300016: witch sheet_8
+    21300018: witch sheet_9
+    21300020: witch sheet_10
+    21300022: witch sheet_11
+    21300024: witch sheet_12
+    21300026: witch sheet_13
+    21300028: witch sheet_14
+    21300030: witch sheet_15
+    21300032: witch sheet_16
+    21300034: witch sheet_17
+    21300036: witch sheet_18
+    21300038: witch sheet_19
+    21300040: witch sheet_20
+    21300042: witch sheet_21
+    21300044: witch sheet_22
+    21300046: witch sheet_23
+    21300048: witch sheet_24
+    21300050: witch sheet_25
+    21300052: witch sheet_26
+    21300054: witch sheet_27
+    21300056: witch sheet_28
+    21300058: witch sheet_29
+    21300060: witch sheet_30
+    21300062: witch sheet_31
+    21300064: witch sheet_32
+    21300066: witch sheet_33
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 5000
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: witch sheet_0
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 4184
+        width: 1057
+        height: 1760
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1578
+        y: 4184
+        width: 1060
+        height: 1760
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2934
+        y: 4184
+        width: 1071
+        height: 1760
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_3
+      rect:
+        serializedVersion: 2
+        x: 4161
+        y: 4184
+        width: 1045
+        height: 1760
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_4
+      rect:
+        serializedVersion: 2
+        x: 5468
+        y: 4184
+        width: 1065
+        height: 1760
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_5
+      rect:
+        serializedVersion: 2
+        x: 6885
+        y: 4184
+        width: 1043
+        height: 1760
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_6
+      rect:
+        serializedVersion: 2
+        x: 8159
+        y: 4184
+        width: 939
+        height: 1760
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_7
+      rect:
+        serializedVersion: 2
+        x: 9262
+        y: 5638
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_8
+      rect:
+        serializedVersion: 2
+        x: 9389
+        y: 4184
+        width: 939
+        height: 1760
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_9
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 2224
+        width: 948
+        height: 1731
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 2224
+        width: 948
+        height: 1731
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2545
+        y: 2224
+        width: 948
+        height: 1731
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3665
+        y: 2224
+        width: 948
+        height: 1731
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_13
+      rect:
+        serializedVersion: 2
+        x: 4748
+        y: 2224
+        width: 948
+        height: 1731
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_14
+      rect:
+        serializedVersion: 2
+        x: 5826
+        y: 2224
+        width: 948
+        height: 1731
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_15
+      rect:
+        serializedVersion: 2
+        x: 7009
+        y: 2174
+        width: 1223
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_16
+      rect:
+        serializedVersion: 2
+        x: 8189
+        y: 2174
+        width: 1223
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_17
+      rect:
+        serializedVersion: 2
+        x: 9633
+        y: 2174
+        width: 1223
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_18
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 157
+        width: 1223
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1972
+        y: 239
+        width: 1333
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_20
+      rect:
+        serializedVersion: 2
+        x: 3575
+        y: 239
+        width: 1333
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_21
+      rect:
+        serializedVersion: 2
+        x: 4897
+        y: 239
+        width: 1524
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_22
+      rect:
+        serializedVersion: 2
+        x: 6522
+        y: 239
+        width: 1333
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_23
+      rect:
+        serializedVersion: 2
+        x: 8348
+        y: 239
+        width: 1333
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_24
+      rect:
+        serializedVersion: 2
+        x: 9865
+        y: 1277
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_25
+      rect:
+        serializedVersion: 2
+        x: 9875
+        y: 239
+        width: 1501
+        height: 1914
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_26
+      rect:
+        serializedVersion: 2
+        x: 6417
+        y: 1253
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_27
+      rect:
+        serializedVersion: 2
+        x: 11391
+        y: 1018
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_28
+      rect:
+        serializedVersion: 2
+        x: 3509
+        y: 1000
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_29
+      rect:
+        serializedVersion: 2
+        x: 4877
+        y: 1001
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_30
+      rect:
+        serializedVersion: 2
+        x: 3525
+        y: 962
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_31
+      rect:
+        serializedVersion: 2
+        x: 3482
+        y: 813
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_32
+      rect:
+        serializedVersion: 2
+        x: 3520
+        y: 752
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: witch sheet_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 11520
+        height: 6168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

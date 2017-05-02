@@ -15,7 +15,7 @@ public class Pot : Destructible
     public override void Start()
     {
         base.Start();
-        scoreValue = 10;
+        scoreValue = 15;
         health = 1;
         source = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();

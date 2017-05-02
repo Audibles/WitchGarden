@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour {
-
     UIManager uiManager;
     Rigidbody2D rb;
 	SpriteRenderer sr;
@@ -18,21 +18,22 @@ public class PlayerMovement : MonoBehaviour {
 	float moveY;
 	float destroyInput;
 	public float speed;
-	public int score;
-	float startTime;
-	public bool sensingDestructible;
-    public bool hedgeActivated;
-    public bool hedgeMakerVisible;
-    public bool hedgePlacement;
+    
+    public int score;
+
+    public bool sensingDestructible;
+    private bool hedgeActivated;
+    private bool hedgeMakerVisible;
+    private bool hedgePlacement;
     public bool currentlyDamaging;
-    public GameObject hedge;
+    private GameObject hedge;
     private AudioSource source;
-    public bool moving1;
-    public bool moving2;
+    private bool moving1;
+    private bool moving2;
 
     // Use this for initialization
     void Start () {
-		startTime = Time.time + 180;
+		
         uiManager = UIManager.uiManager;
         fs = GameObject.Find("FrontSensor");
 		frontSensor = (FrontSensor) fs.GetComponent(typeof(FrontSensor));
@@ -58,45 +59,76 @@ public class PlayerMovement : MonoBehaviour {
         hedge = GameObject.Find("ShortHedge");
     }
 
+
+    void hitAnimation() {
+        if (anim.GetBool("isWalkingDown") || anim.GetBool("isFacingDown")) {
+            anim.SetTrigger("HitDown");
+        } if (anim.GetBool("isWalkingUp") || anim.GetBool("isFacingUp"))
+        {
+            anim.SetTrigger("HitUp");
+        }
+         if (anim.GetBool("isWalkingLeft") || anim.GetBool("isFacingLeft"))
+        {
+            anim.SetTrigger("HitLeft");
+        }
+        if (anim.GetBool("isWalkingRight") || anim.GetBool("isFacingRight"))
+        {
+            anim.SetTrigger("HitRight");
+        }
+
+    }
+
+
 	// Update is called once per frame
 	void Update() {
-		float guiTime = startTime - Time.time;
-		int minutes = (int) guiTime / 60;
-		int seconds = (int) guiTime % 60;
-		//Debug.Log (minutes + " " + seconds);
+		
+        //Debug.Log (minutes + " " + seconds);
 
-		destroyInput = Input.GetAxis ("Fire1");
+        destroyInput = Input.GetAxis ("Fire1");
         hedgeMaker.GetComponent<Renderer>().enabled = hedgeMakerVisible;
         sensingDestructible = frontSensor.Destructible();
         hedgePlacement = hedgeMaker.Destructible();
 
 
-        if (sensingDestructible)
+       if (sensingDestructible)
         {
             GameObject new_target = frontSensor.Targetting();
             if (new_target != target) {
                 if (target != null) {
-                    target.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+                    //target.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+                    SpriteOutline oldtargetscript = target.GetComponent<SpriteOutline>();
+                    oldtargetscript.setActivate(false);
                 }
                 target = new_target;
-                target.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+                SpriteOutline outlinescript = target.GetComponent<SpriteOutline>();
+                outlinescript.setActivate(true);
+                //target.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }
+
+            try {
+                if (target.GetComponent<ShortBush>().AtCritHealth())
+                {
+                    SpriteOutline oldtargetscript = target.GetComponent<SpriteOutline>();
+                    oldtargetscript.setActivate(false);
+                }
+            } catch {
+                print("Found a pot!");
+            }
+            
         }
         else if (target != null) { 
-            target.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            //target.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+            SpriteOutline outlinescript = target.GetComponent<SpriteOutline>();
+            outlinescript.setActivate(false);
+            target = null;
         }
 
         
         if (destroyInput > 0 && sensingDestructible && !currentlyDamaging)
         {
-            if (anim.GetBool("isWalkingLeft") || anim.GetBool("isFacingLeft"))
-            {
-                anim.SetBool("HitLeft", true);
-            }
-
+            hitAnimation();
             currentlyDamaging = true;
             frontSensor.Damage(this);
-            anim.SetBool("HitLeft", false);
         }
         else if (destroyInput == 0)
         {
@@ -127,6 +159,7 @@ public class PlayerMovement : MonoBehaviour {
                 Vector3 hedgeMakerPosition = hedgeMaker.GetComponent<Transform>().position;
                 hedgeMakerPosition.z = 0;
                 var build = Instantiate(hedge, hedgeMakerPosition, hedgeMaker.GetComponent<Transform>().rotation);
+                print(build);
                 //OnTriggerEnter(build.GetComponent<Collider2D>());
                 hedgeActivated = false;
                 hedgeMakerVisible = false;
