@@ -30,7 +30,7 @@ public class ShortBush : Destructible
         {
             spriteRenderer.sprite = normal;
         }
-        //source = GetComponent<AudioSource>();
+        source = GetComponent<AudioSource>();
         //anim = GetComponent<Animator>();
 
     }
@@ -45,7 +45,7 @@ public class ShortBush : Destructible
 
         float vol = Random.Range(volLowRange, volHighRange);
         var number = Random.Range(0, 2);
-        source.PlayOneShot(breakSound2, vol);
+        source.PlayOneShot(breakSound1, vol);
 
         health -= 1;
         if (health == 8) {

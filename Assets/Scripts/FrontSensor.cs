@@ -15,7 +15,7 @@ public class FrontSensor : Sensor
     public override void Start()
     {
         base.Start();
-        colliderOffset = 0.255f;
+        colliderOffset = colliderOffset;
         initPos = new Vector3(colliderOffset, 0, 0);
         senseDestructible = false;
     }
@@ -28,6 +28,17 @@ public class FrontSensor : Sensor
             sensedObj = (Destructible)so.GetComponent(typeof(Destructible));
             //player.sensingDestructible = true;
             senseDestructible = true;
+        }
+    }
+
+    public GameObject Targetting() {
+        if (this.so != null)
+        {
+            return this.so;
+        }
+        else
+        {
+            return null;
         }
     }
 

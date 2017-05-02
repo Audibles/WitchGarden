@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour {
     GameObject hm;
     FrontSensor hedgeMaker;
     Animator anim;
-	float moveX;
+    GameObject target;
+    float moveX;
 	float moveY;
 	float destroyInput;
 	public float speed;
@@ -25,9 +26,12 @@ public class PlayerMovement : MonoBehaviour {
     public bool hedgePlacement;
     public bool currentlyDamaging;
     public GameObject hedge;
+    private AudioSource source;
+    public bool moving1;
+    public bool moving2;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		startTime = Time.time + 180;
         uiManager = UIManager.uiManager;
         fs = GameObject.Find("FrontSensor");
@@ -47,6 +51,9 @@ public class PlayerMovement : MonoBehaviour {
         hedgeMakerVisible = false;
         currentlyDamaging = false;
 
+        source = GetComponent<AudioSource>();
+        target = frontSensor.Targetting();
+        source.Play();
         //ability to build hedge fetch it
         hedge = GameObject.Find("ShortHedge");
     }
@@ -56,19 +63,37 @@ public class PlayerMovement : MonoBehaviour {
 		float guiTime = startTime - Time.time;
 		int minutes = (int) guiTime / 60;
 		int seconds = (int) guiTime % 60;
-		Debug.Log (minutes + " " + seconds);
+		//Debug.Log (minutes + " " + seconds);
 
 		destroyInput = Input.GetAxis ("Fire1");
         hedgeMaker.GetComponent<Renderer>().enabled = hedgeMakerVisible;
         sensingDestructible = frontSensor.Destructible();
         hedgePlacement = hedgeMaker.Destructible();
 
+
+        if (sensingDestructible)
+        {
+            GameObject new_target = frontSensor.Targetting();
+            if (new_target != target) {
+                if (target != null) {
+                    target.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+                }
+                target = new_target;
+                target.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            }
+        }
+        else if (target != null) { 
+            target.GetComponent<Renderer>().material.SetColor("_Color", Color.white);
+        }
+
+        
         if (destroyInput > 0 && sensingDestructible && !currentlyDamaging)
         {
             if (anim.GetBool("isWalkingLeft") || anim.GetBool("isFacingLeft"))
             {
                 anim.SetBool("HitLeft", true);
             }
+
             currentlyDamaging = true;
             frontSensor.Damage(this);
             anim.SetBool("HitLeft", false);
@@ -123,6 +148,13 @@ public class PlayerMovement : MonoBehaviour {
 		moveX = Input.GetAxis("Horizontal");
 		moveY = Input.GetAxis("Vertical");
 
+        if (!moving1 && !moving2 && (moveX != 0 || moveY != 0)) {
+            source.Play();
+        }
+
+        moving1 = true;
+        moving2 = true;
+
         if (moveX > 0)
         { //flip right and moving right
             if (anim.GetBool("isWalkingDown") || anim.GetBool("isWalkingUp"))
@@ -159,6 +191,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else
         { // not moving
+            moving1 = false;
             if (anim.GetBool("isWalkingRight"))
             {
                 anim.SetBool("isWalkingRight", false);
@@ -208,6 +241,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         else
         { // not moving
+            moving2 = false;
             if (anim.GetBool("isWalkingUp"))
             {
                 anim.SetBool("isWalkingUp", false);
@@ -220,6 +254,11 @@ public class PlayerMovement : MonoBehaviour {
                 anim.SetBool("isFacingDown", true);
                 anim.SetBool("isFacingUp", false);
             }
+        }
+
+        if (!moving1 && !moving2)
+        {
+            source.Pause();
         }
 
         rb.velocity = moveDirection * speed * Time.deltaTime;

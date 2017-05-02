@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: 23dbb873bc5355c43993d8a1f8d251ae
+timeCreated: 1493688461
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: guardsheet_0
+    21300002: guardsheet_1
+    21300004: guardsheet_2
+    21300006: guardsheet_3
+    21300008: guardsheet_4
+    21300010: guardsheet_5
+    21300012: guardsheet_6
+    21300014: guardsheet_7
+    21300016: guardsheet_8
+    21300018: guardsheet_9
+    21300020: guardsheet_10
+    21300022: guardsheet_11
+    21300024: guardsheet_12
+    21300026: guardsheet_13
+    21300028: guardsheet_14
+    21300030: guardsheet_15
+    21300032: guardsheet_16
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: guardsheet_0
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 1955
+        width: 808
+        height: 1732
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_1
+      rect:
+        serializedVersion: 2
+        x: 921
+        y: 3466
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_2
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 1955
+        width: 808
+        height: 1733
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_3
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 1955
+        width: 808
+        height: 1733
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_4
+      rect:
+        serializedVersion: 2
+        x: 2891
+        y: 1955
+        width: 808
+        height: 1733
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_5
+      rect:
+        serializedVersion: 2
+        x: 3792
+        y: 1955
+        width: 808
+        height: 1733
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_6
+      rect:
+        serializedVersion: 2
+        x: 4707
+        y: 1955
+        width: 808
+        height: 1733
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_7
+      rect:
+        serializedVersion: 2
+        x: 5660
+        y: 1955
+        width: 808
+        height: 1733
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_8
+      rect:
+        serializedVersion: 2
+        x: 6603
+        y: 1955
+        width: 808
+        height: 1733
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_9
+      rect:
+        serializedVersion: 2
+        x: 4594
+        y: 3455
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_10
+      rect:
+        serializedVersion: 2
+        x: 5509
+        y: 3455
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_11
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 98
+        width: 812
+        height: 1750
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_12
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 104
+        width: 812
+        height: 1750
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_13
+      rect:
+        serializedVersion: 2
+        x: 2657
+        y: 104
+        width: 812
+        height: 1750
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_14
+      rect:
+        serializedVersion: 2
+        x: 4042
+        y: 104
+        width: 812
+        height: 1750
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_15
+      rect:
+        serializedVersion: 2
+        x: 5064
+        y: 104
+        width: 812
+        height: 1750
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: guardsheet_16
+      rect:
+        serializedVersion: 2
+        x: 6072
+        y: 104
+        width: 812
+        height: 1750
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
