@@ -18,8 +18,11 @@ public class PlayerMovement : MonoBehaviour {
 	float moveY;
 	float destroyInput;
 	public float speed;
-    
+    private float volLowRange = .5f;
+    private float volHighRange = 1.0f;
     public int score;
+
+    public AudioClip explosion;
 
     public bool sensingDestructible;
     private bool hedgeActivated;
@@ -28,6 +31,7 @@ public class PlayerMovement : MonoBehaviour {
     public bool currentlyDamaging;
     private GameObject hedge;
     private AudioSource source;
+    public AudioSource source2;
     private bool moving1;
     private bool moving2;
 
@@ -53,6 +57,7 @@ public class PlayerMovement : MonoBehaviour {
         currentlyDamaging = false;
 
         source = GetComponent<AudioSource>();
+
         target = frontSensor.Targetting();
         source.Play();
         //ability to build hedge fetch it
@@ -172,6 +177,13 @@ public class PlayerMovement : MonoBehaviour {
             hedgeActivated = false;
             hedgeMakerVisible = false;
         }
+
+        if (Input.GetKeyDown("j")) {
+            float vol = Random.Range(volLowRange, volHighRange);
+            source2.PlayOneShot(explosion, vol);
+        }
+
+
 
     }
 

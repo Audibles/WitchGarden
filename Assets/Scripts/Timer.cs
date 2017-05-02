@@ -9,14 +9,15 @@ public class Timer : MonoBehaviour {
     public Text myTimer;
     private float startTime;
     private float guiTime;
+    public float setTime;
 
 
     void Start()
     {
-
+        setTime = 360;
         myTimer = GetComponent<Text>() as Text;
         //startTime = 10;
-        startTime = Time.time + 180;
+        startTime = Time.time + setTime;
 
     }
 
