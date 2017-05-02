@@ -24,7 +24,7 @@ public class ShortBush : Destructible
     public override void Start () {
         base.Start();
         scoreValue = 25;
-        health = 10;
+        health = 9;
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer.sprite == null)
         {

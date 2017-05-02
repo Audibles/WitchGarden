@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{1D3D5E74-9F4D-1349-2FE3-45C19D9E65ED}") = "WitchGarden", "Assembly-CSharp.csproj", "{31612B88-50F5-2478-B094-29810AFFB45E}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WitchGarden", "Assembly-CSharp.csproj", "{31612B88-50F5-2478-B094-29810AFFB45E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
