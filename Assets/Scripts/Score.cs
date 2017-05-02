@@ -7,22 +7,23 @@ public class Score : MonoBehaviour
 {
 
     public Text myScore;
-    public int score;
-
+    int score;
+	public GameObject playerObj;
+	PlayerMovement player;
 
     void Start()
     {
-
+		this.player = (PlayerMovement)playerObj.GetComponent(typeof(PlayerMovement));
         myScore = GetComponent<Text>() as Text;
-        score = 0;
+        this.score = 0;
         //startTime = Time.time + 180;
 
     }
 
     void Update()
     {
-        //score = player.score;
-        myScore.text = string.Format("Score: ${0}", score);
-
+        this.score = player.score;
+        myScore.text = string.Format("Score: {0}", score);
+		Debug.Log (score);
     }
 }
