@@ -74,6 +74,7 @@ public class PlayerMovement : MonoBehaviour {
         if (anim.GetBool("isWalkingRight") || anim.GetBool("isFacingRight"))
         {
             anim.SetTrigger("HitRight");
+
         }
 
     }
